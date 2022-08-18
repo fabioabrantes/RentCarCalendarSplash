@@ -41,6 +41,7 @@ export function CarDetails(){
         const response = await api.get('/cars');
         const cars = response.data as CarDTO[];
         setCar(cars[0]);
+        console.log(car);
       } catch (error) {
         console.log(error);
       }finally {
@@ -59,7 +60,7 @@ export function CarDetails(){
           <Container>   
             <CarImageContainer>
               <CarImage 
-                source={car.photos[0]}
+                source={{uri:car.photos[0]}}
                 resizeMode="contain"
               />
             </CarImageContainer>

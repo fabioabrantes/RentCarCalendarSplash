@@ -109,7 +109,7 @@ export function SchedulingDetails(){
       
       <CarImageContainer>
         <CarImage 
-          source={car.photos[0]}
+          source={{uri:car.photos[0]}}
           resizeMode="contain"
         />
       </CarImageContainer>

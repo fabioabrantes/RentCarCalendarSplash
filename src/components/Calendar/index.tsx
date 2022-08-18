@@ -1,4 +1,3 @@
-import React from 'react';
 import {Feather} from '@expo/vector-icons';
 import {useTheme} from 'styled-components';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -11,14 +10,15 @@ import {
 
 import {ptBR} from './localConfig';
 import {generateInterval} from './generateInterval';
-
 LocaleConfig.locales['pt-br'] = ptBR;
 LocaleConfig.defaultLocale = 'pt-br';
 
+
+
 interface MarkedDateProps{
   [key:string]:{
-    color:string;
-    textColor:string;
+    color?:string;
+    textColor?:string;
     disabled?:boolean;
     disableTouchEvent?:boolean; // quando o usuário clicar não acontecer nada. seria datas não disponíveis. já agendadas
   }
@@ -27,17 +27,12 @@ interface CalendarProps{
   markedDates:MarkedDateProps;
   onDayPress:(date: DateData) => void;
 }
-interface DayProps{
-  dateString:string;
-  day:number;
-  month:number;
-  year:number;
-  timestamp:number;
-}
 
 function Calendar({markedDates,onDayPress}:CalendarProps){
+  
   const theme = useTheme();
 
+    
   return (
     <CustomCalendar
       renderArrow={(direction)=>(
@@ -73,4 +68,4 @@ function Calendar({markedDates,onDayPress}:CalendarProps){
     />
   )
 }
-export {Calendar,DayProps,MarkedDateProps,generateInterval}
+export {Calendar,MarkedDateProps,generateInterval}
